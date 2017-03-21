@@ -1,0 +1,21 @@
+
+<h1><%= @cat.name %></h1>
+<%= button_to "Delete Cat", cat_url(@cat), method: :delete %>
+<%= button_to "Edit Cat", edit_cat_url(@cat), method: :get %><br>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Color</th>
+    <th>Birth Date</th>
+    <th>Sex</th>
+  </tr>
+  <tr>
+    <td><%= @cat.name %></td>
+    <td><%= @cat.color %></td>
+    <td><%= @cat.birth_date %></td>
+    <td><%= @cat.sex %></td>
+  </td>
+</table>
+
+<h3>Description</h3>
+<p><%= @cat.description %></p>

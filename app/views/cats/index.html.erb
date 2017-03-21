@@ -1,0 +1,19 @@
+
+
+<h1>99 Cats</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Color</th>
+    <th>Birth Date</th>
+    <th>Sex</th>
+  </tr>
+  <% @cats.each do |cat| %>
+  <tr>
+    <td><a href="<%= cat_url(cat) %>"><%= cat.name %></a></td>
+    <td><%= cat.color %></td>
+    <td><%= cat.birth_date %></td>
+    <td><%= cat.sex %></td>
+  </tr>
+  <% end %>
+</table>

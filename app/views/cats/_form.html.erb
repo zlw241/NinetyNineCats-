@@ -1,0 +1,52 @@
+
+<% url = persisted ? cat_url(cat) : cats_url %>
+<% button_text = persisted ? "Update Cat" : "Create Cat" %>
+<% cat_name = persisted ? cat.name : "" %>
+<% cat_sex = persisted ? cat.sex : "" %>
+<% cat_birth_date = persisted ? cat.birth_date : "" %>
+<% cat_color = persisted ? cat.color : "" %>
+<% cat_description = persisted ? cat.description : "" %>
+
+<form action="<%= url %>" method="post">
+  <% if persisted %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+
+  <label for="cat_name">Name</label>
+  <input id="cat_name" type="text" name="cat[name]" value="<%= cat_name %>"><br><br>
+
+  <label>Sex<br>
+    <% if cat_sex == "F" %>
+    <input type="radio" name="cat[sex]" value="M"> Male<br>
+    <input type="radio" name="cat[sex]" value="F" checked> Female<br>
+    <% elsif %>
+    <input type="radio" name="cat[sex]" value="M" checked> Male<br>
+    <input type="radio" name="cat[sex]" value="F"> Female<br>
+    <% end %>
+  </label><br><br>
+
+  <label for="cat_color">Color</label>
+  <select id="cat_color" name="cat[color]">
+    <option value="<%= cat_color %>" selected><%= cat_color %></option>
+    <option value="Black">Black</option>
+    <option value="White">White</option>
+    <option value="Silver">Silver</option>
+    <option value="Gold">Gold</option>
+    <option value="Yellow">Yellow</option>
+    <option value="Brown">Brown</option>
+    <option value="Grey">Grey</option>
+    <option value="Orange">Orange</option>
+    <option value="Tortoiseshell">Tortoiseshell</option>
+    <option value="Mackerel">Mackerel</option>
+    <option value="Siamese">Siamese</option>
+  </select><br><br>
+
+
+  <label for="cat_birth_date">Birth Date</label>
+  <input id="cat_birth_date" type="date" name="cat[birth_date]" value="<%= cat_birth_date %>"><br><br>
+
+  <label for="cat_description">Description</label>
+  <input type="textarea" id="cat_description" name="cat[description]" value="<%= cat_description %>"><br><br>
+
+  <input type="submit" value="<%= button_text %>">
+</form>
