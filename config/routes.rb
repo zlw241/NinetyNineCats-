@@ -55,4 +55,8 @@ Rails.application.routes.draw do
   #   end
 
   resources :cats
+  resources :cat_rental_requests
+
+  resources :cat_rental_requests do
+  end
 end

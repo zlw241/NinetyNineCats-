@@ -19,3 +19,14 @@
 
 <h3>Description</h3>
 <p><%= @cat.description %></p>
+
+<h3>Rental Requests</h3>
+<ul>
+<% @cat.cat_rental_requests.order(:start_date).each do |rr| %>
+  <li><%= rr.start_date %> <%= rr.end_date %> <%= rr.status %></li>
+  <% if rr.pending? %>
+    <%= button_to "Approve Rental Request", cat_url(@cat), method: :delete %>
+    <%= button_to "Deny Rental Request", cat_url(@cat), method: :delete %>
+  <% end %>
+<% end %>
+</ul>
